@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Cook Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">👨‍🍳 Cook Dashboard</div>
+        <div class="muted">Live meal preparation counts</div>
+      </div>
+    </header>
+
+    <div class="tabs" id="tabs">
+      <div class="tab" data-meal="breakfast">Breakfast</div>
+      <div class="tab" data-meal="lunch">Lunch</div>
+      <div class="tab" data-meal="dinner">Dinner</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat eat"><div class="num" id="statEat">-</div><div class="lbl">Will Eat</div></div>
+      <div class="stat skip"><div class="num" id="statSkip">-</div><div class="lbl">Won't Eat</div></div>
+      <div class="stat pending"><div class="num" id="statPending">-</div><div class="lbl">Not Voted</div></div>
+    </div>
+
+    <div class="card">
+      <div class="meal-header">
+        <div class="meal-title" id="mealStatusLabel">-</div>
+        <div class="badge" id="mealBadge">-</div>
+      </div>
+      <div id="studentList"></div>
+    </div>
+
+    <div class="refresh-note">Auto-refreshing every 5s</div>
+  </div>
+
+  <script src="cook.js"></script>
+</body>
+</html>

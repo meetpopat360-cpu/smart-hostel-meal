@@ -1,0 +1,58 @@
+{
+  "students": [
+    {
+      "id": "S101",
+      "name": "Meet Patel",
+      "block": "A",
+      "room": "204"
+    },
+    {
+      "id": "S102",
+      "name": "Aarav Shah",
+      "block": "A",
+      "room": "205"
+    },
+    {
+      "id": "S103",
+      "name": "Diya Mehta",
+      "block": "B",
+      "room": "101"
+    },
+    {
+      "id": "S104",
+      "name": "Kabir Joshi",
+      "block": "B",
+      "room": "102"
+    },
+    {
+      "id": "S105",
+      "name": "Isha Trivedi",
+      "block": "A",
+      "room": "210"
+    }
+  ],
+  "votes": {
+    "2026-10-22_dinner_S101": {
+      "choice": "EAT",
+      "votedAt": "2026-10-22T03:50:25.954Z"
+    },
+    "2026-10-22_dinner_S102": {
+      "choice": "EAT",
+      "votedAt": "2026-10-22T04:31:58.931Z"
+    },
+    "2026-10-22_dinner_S103": {
+      "choice": "EAT",
+      "votedAt": "2026-10-22T04:32:20.664Z"
+    },
+    "2026-10-22_dinner_S104": {
+      "choice": "SKIP",
+      "votedAt": "2026-10-22T04:32:36.085Z"
+    },
+    "2026-10-22_dinner_S105": {
+      "choice": "EAT",
+      "votedAt": "2026-10-22T04:33:07.853Z"
+    }
+  },
+  "attendance": {},
+  "fines": []
+}
