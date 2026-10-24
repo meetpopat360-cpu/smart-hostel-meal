@@ -9,8 +9,7 @@ function defaultData() {
       { id: "S101", name: "Meet Popat", block: "3", room: "12" },
       { id: "S102", name: "Vedant Dhokai", block: "3", room: "12" },
       { id: "S103", name: "Ridham Kotak", block: "3", room: "12" },
-      { id: "S104", name: "Kabir Joshi", block: "B", room: "102" },
-      { id: "S105", name: "Isha Trivedi", block: "A", room: "210" }
+      
     ],
     // votes keyed by `${date}_${meal}_${studentId}` -> { choice, votedAt }
     votes: {},

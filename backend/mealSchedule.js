@@ -4,10 +4,13 @@
 // Lunch: closes 9:00 AM same day.
 // Dinner: closes 5:00 PM same day.
 
+const IST_OFFSET = 5.5 * 60 * 60 * 1000; // UTC+5:30
 function pad(n) { return n.toString().padStart(2, "0"); }
 
+function toIST(d) { return new Date(d.getTime() + IST_OFFSET); }
 function dateKey(d) {
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const ist = toIST(d);
+  return `${ist.getFullYear()}-${pad(ist.getMonth()+1)}-${pad(ist.getDate())}`;
 }
 
 function addDays(d, n) {
@@ -25,17 +28,17 @@ function getMealMeta(now, meal, targetDateKey) {
   if (meal === "breakfast") {
     const voteDay = addDays(targetDate, -1);
     const deadline = new Date(voteDay);
-    deadline.setHours(21, 0, 0, 0); // 9 PM previous day
+    deadline.setUTCHours(15, 30, 0, 0); // 9 PM previous day
     return { deadline, voteDateKey: dateKey(voteDay) };
   }
   if (meal === "lunch") {
     const deadline = new Date(targetDate);
-    deadline.setHours(9, 0, 0, 0); // 9 AM same day
+    deadline.setUTCHours(3, 30, 0, 0); // 9 AM same day
     return { deadline, voteDateKey: targetDateKey };
   }
   if (meal === "dinner") {
     const deadline = new Date(targetDate);
-    deadline.setHours(17, 0, 0, 0); // 5 PM same day
+    deadline.setUTCHours(11, 30, 0, 0); // 5 PM same day
     return { deadline, voteDateKey: targetDateKey };
   }
   throw new Error("Unknown meal: " + meal);
