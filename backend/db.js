@@ -23,9 +23,10 @@ function load() {
   if (!fs.existsSync(DB_FILE)) {
     save(defaultData());
   }
-  return JSON.parse(fs.readFileSync(DB_FILE, "utf-8"));
+  const data = JSON.parse(fs.readFileSync(DB_FILE, "utf-8"));
+  data.students = defaultData().students; // always use latest students
+  return data;
 }
-
 function save(data) {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
 }
