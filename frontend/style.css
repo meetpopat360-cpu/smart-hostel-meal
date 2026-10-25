@@ -1,13 +1,97 @@
-
-/* Date grouping */
-.date-group { margin-bottom: 6px; }
-.date-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  padding: 0 4px 6px;
+:root{
+  --bg:#0b1120;--card:#151f33;--card2:#1a2540;
+  --text:#f0f4ff;--muted:#8896b3;--border:#1e2d4a;
+  --green:#22c55e;--red:#ef4444;--amber:#f59e0b;--accent:#6366f1;--blue:#38bdf8;
+  --r:14px;
 }
-.dimmed { opacity: 0.45; }
-.dimmed .vote-btn { cursor: not-allowed; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent;}
+
+.app{max-width:480px;margin:0 auto;padding:16px 14px 48px;}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.3px;}
+.user-chip{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:5px 10px;font-size:13px;color:var(--muted);}
+.user-chip button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:14px;padding:0;}
+.live-dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--green);}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* LOGIN */
+.login-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;margin-top:24px;}
+.login-icon{font-size:48px;margin-bottom:12px;}
+.login-box h2{font-size:22px;margin-bottom:6px;}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px;}
+.hint{color:var(--muted);font-size:12px;margin-top:12px;}
+
+input{width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--card2);color:var(--text);font-size:16px;margin-bottom:12px;outline:none;}
+input:focus{border-color:var(--accent);}
+
+.primary-btn{width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;}
+
+/* DATE GROUP */
+.date-group{margin-bottom:4px;}
+.date-header{display:flex;align-items:center;gap:8px;padding:14px 2px 8px;}
+.date-tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(99,102,241,.12);padding:3px 9px;border-radius:999px;}
+.date-str{font-size:12px;color:var(--muted);}
+
+/* MEAL CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;}
+.card.dimmed{opacity:.4;pointer-events:none;}
+
+.meal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.meal-title{font-size:16px;font-weight:700;}
+.badge{font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:999px;}
+.badge.open{background:rgba(34,197,94,.15);color:var(--green);}
+.badge.closed{background:rgba(148,163,184,.1);color:var(--muted);}
+
+.countdown{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.countdown b{color:var(--text);}
+
+.vote-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.vote-btn{padding:13px 6px;border-radius:10px;background:var(--card2);border:2px solid transparent;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;transition:.15s;}
+.vote-btn:disabled{opacity:.35;cursor:default;}
+.vote-btn.eat.selected{background:rgba(34,197,94,.12);border-color:var(--green);color:var(--green);}
+.vote-btn.skip.selected{background:rgba(239,68,68,.12);border-color:var(--red);color:var(--red);}
+
+/* COOK — date/meal tabs */
+.date-tabs{display:flex;gap:8px;margin-bottom:10px;}
+.dtab{flex:1;padding:10px;border-radius:10px;background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;}
+.dtab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+.meal-tabs{display:flex;gap:6px;margin-bottom:14px;}
+.mtab{flex:1;padding:10px 4px;border-radius:10px;background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;text-align:center;}
+.mtab.active{border-color:var(--accent);color:var(--accent);}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 6px;text-align:center;}
+.stat-num{font-size:22px;font-weight:800;}
+.stat-lbl{font-size:10px;color:var(--muted);margin-top:2px;}
+.stat-box.green .stat-num{color:var(--green);}
+.stat-box.red   .stat-num{color:var(--red);}
+.stat-box.amber .stat-num{color:var(--amber);}
+.stat-box.blue  .stat-num{color:var(--blue);}
+
+/* STATUS BAR */
+.status-bar{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;}
+.status-bar .sbadge{font-size:10px;font-weight:800;padding:3px 9px;border-radius:999px;}
+.sbadge.open{background:rgba(34,197,94,.15);color:var(--green);}
+.sbadge.closed{background:rgba(148,163,184,.1);color:var(--muted);}
+
+/* STUDENT LIST */
+.s-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);}
+.s-row:last-child{border-bottom:none;}
+.s-name{font-size:14px;font-weight:600;}
+.s-meta{font-size:11px;color:var(--muted);margin-top:1px;}
+.pill{font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;}
+.pill.EAT{background:rgba(34,197,94,.15);color:var(--green);}
+.pill.SKIP{background:rgba(239,68,68,.15);color:var(--red);}
+.pill.NOT_VOTED{background:rgba(148,163,184,.1);color:var(--muted);}
+
+.refresh-note{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap;z-index:99;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}

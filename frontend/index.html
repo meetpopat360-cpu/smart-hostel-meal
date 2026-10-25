@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
 <title>Hostel Meals</title>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div>
-        <div class="brand">🍽️ Hostel Meals</div>
-        <div id="studentLabel" class="muted">loading…</div>
-      </div>
-      <button id="switchBtn" class="ghost-btn">Switch ID</button>
-    </header>
-
-    <div id="loginBox" class="card" style="display:none">
-      <h2>Enter your Student ID</h2>
-      <input id="idInput" placeholder="e.g. S101" autocomplete="off" />
-      <button id="loginBtn" class="primary-btn">Continue</button>
-      <p class="muted small">Demo IDs: S101, S102, S103, S104, S105</p>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">🍽️ Hostel Meals</div>
+    <div id="userChip" class="user-chip" style="display:none">
+      <span id="userName"></span>
+      <button id="switchBtn">⇄</button>
     </div>
+  </header>
 
-    <main id="mealsBox"></main>
-
-    <div id="toast" class="toast"></div>
+  <div id="loginBox" class="login-box">
+    <div class="login-icon">🏠</div>
+    <h2>Welcome</h2>
+    <p class="sub">Enter your Student ID to vote for meals</p>
+    <input id="idInput" placeholder="e.g. S101" autocomplete="off"/>
+    <button id="loginBtn" class="primary-btn">Continue →</button>
+    <p class="hint">Demo: S101 · S102 · S103</p>
   </div>
 
-  <script src="app.js"></script>
+  <main id="mealsBox"></main>
+  <div id="toast" class="toast"></div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
